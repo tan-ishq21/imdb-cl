@@ -1,9 +1,13 @@
 .header {
-    margin: 0 2.5rem;
-    padding: .5rem 0;
+    margin: 0;
+    padding: .5rem 2.5rem;
     display: flex;
     justify-content:space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background-color: black;
 }
 
 .header-left, .headerRight {
@@ -69,3 +73,38 @@ a > span:hover {
     border-color: #45a049;
   }
   
+  .search-results{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    margin: 10px;
+  }
+
+.cancel-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .header-left {
+      margin-bottom: 10px;
+  }
+
+  .head-links {
+      margin: 0;
+      padding: 10px;
+      display: block;
+  }
+
+  .search-bar {
+      margin-top: 10px;
+  }
+}

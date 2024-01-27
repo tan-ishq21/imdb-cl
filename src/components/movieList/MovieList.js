@@ -6,15 +6,14 @@ import { useParams } from "react-router-dom";
 const MovieList = () => {
     const [movieList, setMovieList] = useState([]);
     const {type} = useParams();
-
     useEffect(() => {
-        getData();
+        getData()
     },[])
 
     useEffect(() => {
         getData()
     },[type])
-
+// 
     const getData = () => {
         fetch(`https://api.themoviedb.org/3/movie/${type ? type : "popular"}?api_key=017bbeb28b0d985ad79adf8821348576&language=en-US`)
         .then(res => res.json())
@@ -30,7 +29,7 @@ const MovieList = () => {
                 <div className="list-cards">
                     {
                         movieList.map(movie => (
-                            <Card movie={movie} />
+                            <Card key={movie.id} movie={movie} />
                         ))
                     }
                 </div>
