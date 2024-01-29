@@ -61,12 +61,12 @@
         width: 100%;
     }
     .poster-image-title {
-        font-size: 1.0rem;
+        font-size: 1.5rem;
         text-align: left;
     }
 
     .poster-image-runtime {
-        font-size: 0.9rem;
+        font-size: 1.0rem;
         margin-bottom: 0.5rem;
         text-align: left;
     }
@@ -77,7 +77,7 @@
     }
 
     .poster-image-description {
-        font-size: 0.5rem;
+        font-size: 1.0rem;
         width: 100%;
         text-align: left;
     }
