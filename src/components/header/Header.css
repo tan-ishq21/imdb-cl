@@ -1,61 +1,23 @@
-.header {
-    margin: 0;
-    padding: .5rem 2.5rem;
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 10000;
-    background-color: black;
+.navbar {
+  background-color: #4ea7ef;
 }
-
-.header-left, .headerRight {
-    display: flex;
-    align-items: center;
-
+.links{
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  padding: 10px;
 }
-
+.links:hover {
+  color: rgb(255, 251, 0);
+}
 .head-links {
     text-decoration: none;
 }
-a > span{
-    margin: 0 30px;
-    font-size: 1.3rem;
-    cursor: pointer;
-    color: white;
+
+.header-icon{
+  height: 50px;
+  width: 100px;
 }
 
-a > span:hover {
-    color: goldenrod;
-}
-
-.header-icon {
-    margin-right: 100px;
-    width: 80px;
-    cursor: pointer;
-}
-
-.user-avatar {
-    font-size: 2rem;
-}
-
-
-.search-bar {
-    display: flex;
-    align-items: center;
-    width: 300px; /* Adjust the width as needed */
-    margin: 20px; /* Adjust margin as needed */
-  }
-  
-  input[type="text"] {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    flex: 1;
-    font-size: 16px;
-  }
-  
   .search-btn {
     padding: 10px 15px;
     background-color: #048e08; /* Green color, you can change it */
@@ -88,23 +50,3 @@ a > span:hover {
     margin: 20px;
 }
 
-@media screen and (max-width: 768px) {
-  .header {
-      flex-direction: column;
-      align-items: stretch;
-  }
-
-  .header-left {
-      margin-bottom: 10px;
-  }
-
-  .head-links {
-      margin: 0;
-      padding: 10px;
-      display: block;
-  }
-
-  .search-bar {
-      margin-top: 10px;
-  }
-}

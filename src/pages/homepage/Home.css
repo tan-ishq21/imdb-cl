@@ -55,30 +55,30 @@
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
-    .poster-image {
-        height: auto;
+ 
+    .poster-image > img{
+        height: 100%;
+        width: 100%;
     }
-
-    .poster-image-overlay {
-        padding: 2rem;
-        height: auto;
-    }
-
     .poster-image-title {
-        font-size: 2.5rem;
+        font-size: 1.0rem;
+        text-align: left;
     }
 
     .poster-image-runtime {
-        font-size: 1.5rem;
+        font-size: 0.9rem;
         margin-bottom: 0.5rem;
+        text-align: left;
     }
 
     .poster-image-rating {
-        margin-left: 1rem;
+        margin-left: 0.6rem;
+        text-align: left;
     }
 
     .poster-image-description {
-        font-size: 0.9rem;
+        font-size: 0.5rem;
         width: 100%;
+        text-align: left;
     }
 }

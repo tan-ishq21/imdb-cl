@@ -11,13 +11,6 @@ const Header = () => {
 
     const myDivRef = useRef(null);
 
-  const hideDiv = () => {
-    if (searchClicked) {
-    //   myDivRef.current.style.display = 'none';
-        setSearchClicked(false);
-    }
-  };
-
     useEffect(() => {
         fetch("https://api.themoviedb.org/3/discover/movie?api_key=017bbeb28b0d985ad79adf8821348576&language=en-US")
             .then((res) => res.json())
@@ -35,55 +28,73 @@ const Header = () => {
         setSearchClicked(true);
     };
 
+
+    const hideDiv = () => {
+        if (searchClicked) {
+            setSearchClicked(false);
+        }
+    };
+
     return (
         <>
-            <div className="header">
-                <div className="header-left">
-                    <Link to="/">
-                        <img
-                            className="header-icon"
-                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
-                            alt="Logo"
-                        />
+        <nav className="navbar navbar-expand-lg">
+            <div className="container-fluid">
+                <Link to="/" className="navbar-brand">
+                    <img
+                        className="header-icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/2560px-IMDB_Logo_2016.svg.png"
+                        alt="Logo"
+                    />
+                </Link>
+                
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li className="nav-item">
+                    <Link to="/movies/popular" className="head-links nav-link active">
+                        <span className="links">Popular</span>
                     </Link>
-                    <Link to="/movies/popular" className="head-links">
-                        <span>Popular</span>
+                    </li>
+                    <li className="nav-item">
+                    <Link to="/movies/top_rated" className="head-links nav-link active">
+                        <span className="links">Top Rated</span>
                     </Link>
-                    <Link to="/movies/top_rated" className="head-links">
-                        <span>Top Rated</span>
+                    </li>
+                    <li className="nav-item">
+                    <Link to="/movies/upcoming" className="head-links nav-link active">
+                        <span className="links">Upcoming</span>
                     </Link>
-                    <Link to="/movies/upcoming" className="head-links">
-                        <span>Upcoming</span>
-                    </Link>
-                </div>
-                <div className="search-bar">
-                    <input
-                        type="text"
-                        placeholder="Search..."
+                    </li>
+                    
+                </ul>
+                <form className="d-flex" role="search">
+                    <input className="form-control me-2" 
+                        type="text" 
+                        placeholder="Search..."  
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />
-                    <button className="search-btn" onClick={handleSearch}>
-                        Search
-                    </button>
-                    {/* <button className="search-btn">Hide Search</button> */}
+                    <button className="btn btn-outline-success" type="button" onClick={handleSearch}>Search</button>
+                </form>
                 </div>
             </div>
+        </nav>
+
 
             {searchClicked && (
                 <>
-                <div ref={myDivRef} className="search-results">
-                    {filteredMovies.map((movie) => (
-                        <div key={movie.id} className="result-item">
-                            {/* <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
-                            <p>{movie.title}</p> */}
-                            <Card movie={movie} />
+                    <div ref={myDivRef} className="search-results">
+                        {filteredMovies.map((movie) => (
+                            <div key={movie.id} className="result-item">
+                                <Card movie={movie} />
+                            </div>
+                        ))}
+                        <div className="cancel-btn">
+                            <button className="search-btn" onClick={hideDiv}>Clear</button>
                         </div>
-                    ))}
-                <div className="cancel-btn">
-                    <button className="search-btn" onClick={hideDiv}>Clear</button>
-                </div>
-                </div>
+                    </div>
                 </>
             )}
         </>
